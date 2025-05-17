@@ -1,0 +1,206 @@
+:root {
+  /* Farby */
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+  --color-accent: #ffd166;
+  --color-success: #06d6a0;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.8);
+
+  /* Pozadia a priesvitnosť */
+  --bg-container: rgba(255, 255, 255, 0.1);
+  --bg-item: rgba(255, 255, 255, 0.2);
+
+  /* Tieňovanie */
+  --shadow-main: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* Typografia */
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-heading: 2.5rem;
+  --font-size-subtitle: 1.2rem;
+  --font-size-number: 3rem;
+  --font-size-text: 1.1rem;
+  --font-size-small: 0.9rem;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 600px;
+}
+
+/* Reset a základné nastavenia */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-md);
+  line-height: 1.5;
+}
+
+/* Container */
+.container {
+  background-color: var(--bg-container);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-main);
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  margin-bottom: var(--space-md);
+}
+
+.header__title {
+  font-size: var(--font-size-heading);
+  margin-bottom: var(--space-xs);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header__subtitle {
+  font-size: var(--font-size-subtitle);
+  opacity: 0.9;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-item);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  min-width: 120px;
+}
+
+.countdown__number {
+  font-size: var(--font-size-number);
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.countdown__label {
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* Message */
+.message {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-text);
+}
+
+.message__highlight {
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* Timeline */
+.timeline {
+  margin-top: var(--space-lg);
+  width: 100%;
+}
+
+.timeline__dates {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-small);
+  opacity: 0.9;
+}
+
+.timeline__progress-container {
+  width: 100%;
+  height: 16px;
+  background-color: var(--bg-item);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: var(--space-xs);
+  box-shadow: var(--shadow-inset);
+}
+
+.timeline__progress-bar {
+  height: 100%;
+  width: 0%; /* Bude nastavené cez JavaScript */
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-success) 100%
+  );
+  border-radius: var(--radius-sm);
+  transition: width 0.3s ease;
+}
+
+.timeline__percentage {
+  font-size: var(--font-size-text);
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+/* Footer */
+.footer {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-small);
+  opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: var(--breakpoint-mobile)) {
+  :root {
+    --font-size-heading: 1.8rem;
+    --font-size-number: 2rem;
+  }
+
+  .countdown {
+    gap: 0.7rem;
+  }
+
+  .countdown__item {
+    min-width: 90px;
+    padding: 0.7rem;
+  }
+}
